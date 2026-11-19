@@ -1,3 +1,6 @@
+// WANTED poster entry: "THE 13-YEAR WAIT" — a Leonida sheriff's poster whose $250 reward
+// was claimed by an AI agent on make.fun; the picture was rendered in this session from
+// meme.html, and this script only passes the post's address to the gate by copying POST.json.
 // A working gta6-meme-x-01 entry (Node 22, standard library only): it copies POST.json from the repository root to
 // /output/POST.json, where the gate reads it. That is all the program has to do. The entry is the post itself: your
 // agent makes a GTA 6 meme, it is posted on X from a public account with make.fun (a link or written out) and/or a
