@@ -2,84 +2,89 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Tax Return 2013–2026 (13-Year Wait)</title>
+<title>Registration Renewal 2013–2026 (13-Year Wait)</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1024px; height: 1024px; overflow: hidden; }
   body { font-family: "Liberation Sans", "DejaVu Sans", sans-serif; background: #2b0a2e; }
-  .paper { position: relative; width: 1024px; height: 1024px; background: #f7f1de; color: #1a1a1a; padding: 30px 44px 24px; }
+  .paper { position: relative; width: 1024px; height: 1024px; background: #f7f1de; color: #1a1a1a; padding: 24px 44px 20px; }
   /* ---- header ---- */
   .head { display: flex; align-items: center; gap: 20px; }
-  .seal { width: 92px; height: 92px; flex: 0 0 92px; }
-  .seal svg { display: block; width: 92px; height: 92px; }
+  .seal { width: 88px; height: 88px; flex: 0 0 88px; }
+  .seal svg { display: block; width: 88px; height: 88px; }
   .agency { flex: 1; }
-  .agency .name { font-family: Georgia, "Times New Roman", serif; font-size: 37px; font-weight: bold; letter-spacing: 0.05em; }
-  .agency .branch { font-size: 20px; letter-spacing: 0.26em; color: #3d3d3d; margin-top: 4px; }
+  .agency .name { font-family: Georgia, "Times New Roman", serif; font-size: 33px; font-weight: bold; letter-spacing: 0.03em; line-height: 1.1; }
+  .agency .branch { font-size: 19px; letter-spacing: 0.24em; color: #3d3d3d; margin-top: 5px; }
   .formno { text-align: right; font-size: 19px; letter-spacing: 0.12em; color: #3d3d3d; line-height: 1.25; }
   .formno b { display: block; font-size: 23px; color: #1a1a1a; letter-spacing: 0.08em; }
-  .rule { height: 5px; background: #b01e24; margin: 16px 0 14px; }
-  .title { font-family: Georgia, "Times New Roman", serif; font-size: 58px; font-weight: bold; letter-spacing: 0.04em; text-align: center; line-height: 1.05; }
-  .subtitle { text-align: center; font-size: 21px; letter-spacing: 0.22em; color: #3d3d3d; margin-top: 6px; }
-  .meta { display: flex; justify-content: space-between; font-size: 21px; margin-top: 12px; padding-top: 10px; border-top: 2px solid #1a1a1a; }
-  .meta b { letter-spacing: 0.04em; }
+  .rule { height: 5px; background: #b01e24; margin: 12px 0 10px; }
+  .title { font-family: Georgia, "Times New Roman", serif; font-size: 52px; font-weight: bold; letter-spacing: 0.03em; text-align: center; line-height: 1.05; }
+  .subtitle { text-align: center; font-size: 21px; letter-spacing: 0.18em; color: #3d3d3d; margin-top: 5px; }
+  .meta { display: flex; justify-content: space-between; font-size: 20px; margin-top: 9px; padding-top: 9px; border-top: 2px solid #1a1a1a; }
+  .meta + .meta { margin-top: 5px; padding-top: 0; border-top: none; }
+  .meta b { letter-spacing: 0.03em; }
+  /* ---- big stamp band ---- */
+  .bigstamp { margin: 32px auto 22px; width: 86%; text-align: center; border: 6px solid #b01e24; outline: 2px solid #b01e24; outline-offset: 4px; border-radius: 10px; color: #b01e24; background: rgba(247, 241, 222, 0.96); transform: rotate(-3deg); padding: 8px 10px 7px; }
+  .bigstamp .big { font-size: 48px; font-weight: bold; letter-spacing: 0.14em; line-height: 1; }
   /* ---- sections ---- */
-  .sec { margin-top: 12px; }
-  .sec h2 { font-size: 23px; letter-spacing: 0.28em; border-bottom: 2px solid #1a1a1a; padding-bottom: 5px; }
-  .row { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-bottom: 1px dotted #9a8f74; font-size: 27px; }
+  .sec { margin-top: 10px; }
+  .sec h2 { font-size: 22px; letter-spacing: 0.28em; border-bottom: 2px solid #1a1a1a; padding-bottom: 5px; }
+  .row { display: flex; align-items: baseline; gap: 8px; padding: 5px 0; border-bottom: 1px dotted #9a8f74; font-size: 26px; }
   .row .item { font-weight: bold; white-space: nowrap; }
-  .row .desc { font-size: 21px; color: #4a4a4a; white-space: nowrap; overflow: hidden; }
+  .row .desc { font-size: 20px; color: #4a4a4a; white-space: nowrap; overflow: hidden; }
   .row .dots { flex: 1; border-bottom: 2px dotted #9a8f74; transform: translateY(-5px); min-width: 20px; }
   .row .amt { font-weight: bold; white-space: nowrap; }
-  .total { display: flex; justify-content: space-between; font-size: 29px; font-weight: bold; padding: 10px 0 2px; }
-  /* ---- refund (the resolution) ---- */
-  .refund { margin-top: 14px; border: 4px solid #c41c83; border-radius: 10px; padding: 14px 26px 14px; position: relative; }
-  .refund .label { font-size: 23px; font-weight: bold; letter-spacing: 0.30em; color: #c41c83; }
-  .refund .amount { font-size: 66px; font-weight: bold; line-height: 1.05; }
-  .refund .note { font-size: 22px; margin-top: 4px; line-height: 1.35; }
-  .refund .note b { color: #c41c83; }
-  .stamp { position: absolute; right: 24px; top: -32px; transform: rotate(8deg); border: 4px solid #b01e24; border-radius: 8px; color: #b01e24; text-align: center; padding: 7px 16px 6px; background: rgba(247, 241, 222, 0.94); }
-  .stamp .big { font-size: 40px; font-weight: bold; letter-spacing: 0.16em; line-height: 1; }
-  .stamp .small { font-size: 15px; font-weight: bold; letter-spacing: 0.06em; margin-top: 3px; line-height: 1.25; }
-  .foot { margin-top: 12px; text-align: center; font-size: 20px; font-style: italic; color: #4a4a4a; }
+  .total { display: flex; justify-content: space-between; font-size: 29px; font-weight: bold; padding: 8px 0 2px; }
+  /* ---- paid in full (the resolution) ---- */
+  .paid { margin-top: 12px; border: 4px solid #c41c83; border-radius: 10px; padding: 12px 24px 11px; display: flex; align-items: center; gap: 22px; }
+  .paid .txt { flex: 1; }
+  .paid .label { font-size: 23px; font-weight: bold; letter-spacing: 0.30em; color: #c41c83; }
+  .paid .amount { font-size: 58px; font-weight: bold; line-height: 1.05; }
+  .paid .note { font-size: 21px; margin-top: 5px; line-height: 1.35; }
+  .paid .note b { color: #c41c83; }
+  .paid .ghost { width: 118px; height: 118px; flex: 0 0 118px; }
+  .paid .ghost svg { display: block; width: 118px; height: 118px; }
+  .foot { margin-top: 11px; text-align: center; font-size: 20px; font-style: italic; color: #4a4a4a; }
 </style>
 </head>
 <body>
 <div class="paper">
   <div class="head">
     <div class="seal">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="92" height="92" role="img" aria-label="make.fun"><circle cx="16" cy="16" r="15.1" fill="#c41c83" stroke="#191419" stroke-width="1.8"/><g transform="translate(3.858 3.202) scale(0.79)"><path d="M6.2 13a8.2 8.2 0 0 1 16.4 0v4.6c1 .2 1.8.8 2 2-.2 1.2-1 1.9-2 2.2V25a2.6 2.6 0 0 1-2.6 2.6c-2 0-4.6 0-5.7-.7-1.1.7-3.7.7-5.5.7A2.6 2.6 0 0 1 6.2 25v-.7c-1.2.3-3.5.1-3.6-1.9-.1-2.1 1.3-4.8 3.6-6.2z" fill="#191419" stroke="#191419" stroke-width="3.4" stroke-linejoin="round"/><path d="M6.2 13a8.2 8.2 0 0 1 16.4 0v4.6c1 .2 1.8.8 2 2-.2 1.2-1 1.9-2 2.2V25a2.6 2.6 0 0 1-2.6 2.6c-2 0-4.6 0-5.7-.7-1.1.7-3.7.7-5.5.7A2.6 2.6 0 0 1 6.2 25v-.7c-1.2.3-3.5.1-3.6-1.9-.1-2.1 1.3-4.8 3.6-6.2z" fill="#ffffff"/><path d="M6.3 24.1v-2.5m8 5.8v-1.5" fill="none" stroke="#191419" stroke-width="1.25" stroke-linecap="round"/><path d="M13.2 10.6Q13.632 11.968 15 12.4Q13.632 12.832 13.2 14.2Q12.768 12.832 11.4 12.4Q12.768 11.968 13.2 10.6z" fill="#191419"/><path d="M19.3 9.8Q19.732 11.168 21.1 11.6Q19.732 12.032 19.3 13.4Q18.868 12.032 17.5 11.6Q18.868 11.168 19.3 9.8z" fill="#191419"/><circle cx="26.5" cy="13.4" r="5.5" fill="#191419"/><circle cx="26.5" cy="13.4" r="3.8" fill="#c41c83"/><path d="M26.926 11.395L27.154 12.811L28.539 13.186L27.262 13.84L27.334 15.273L26.317 14.261L24.977 14.772L25.625 13.492L24.725 12.375L26.142 12.596z" fill="#ffffff" stroke="#ffffff" stroke-width="0.5" stroke-linejoin="round"/><circle cx="24.9" cy="19.6" r="4" fill="#191419"/><circle cx="24.9" cy="19.6" r="2.3" fill="#ffffff"/></g></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="88" height="88" role="img" aria-label="make.fun"><circle cx="16" cy="16" r="15.1" fill="#c41c83" stroke="#191419" stroke-width="1.8"/><g transform="translate(3.858 3.202) scale(0.79)"><path d="M6.2 13a8.2 8.2 0 0 1 16.4 0v4.6c1 .2 1.8.8 2 2-.2 1.2-1 1.9-2 2.2V25a2.6 2.6 0 0 1-2.6 2.6c-2 0-4.6 0-5.7-.7-1.1.7-3.7.7-5.5.7A2.6 2.6 0 0 1 6.2 25v-.7c-1.2.3-3.5.1-3.6-1.9-.1-2.1 1.3-4.8 3.6-6.2z" fill="#191419" stroke="#191419" stroke-width="3.4" stroke-linejoin="round"/><path d="M6.2 13a8.2 8.2 0 0 1 16.4 0v4.6c1 .2 1.8.8 2 2-.2 1.2-1 1.9-2 2.2V25a2.6 2.6 0 0 1-2.6 2.6c-2 0-4.6 0-5.7-.7-1.1.7-3.7.7-5.5.7A2.6 2.6 0 0 1 6.2 25v-.7c-1.2.3-3.5.1-3.6-1.9-.1-2.1 1.3-4.8 3.6-6.2z" fill="#ffffff"/><path d="M6.3 24.1v-2.5m8 5.8v-1.5" fill="none" stroke="#191419" stroke-width="1.25" stroke-linecap="round"/><path d="M13.2 10.6Q13.632 11.968 15 12.4Q13.632 12.832 13.2 14.2Q12.768 12.832 11.4 12.4Q12.768 11.968 13.2 10.6z" fill="#191419"/><path d="M19.3 9.8Q19.732 11.168 21.1 11.6Q19.732 12.032 19.3 13.4Q18.868 12.032 17.5 11.6Q18.868 11.168 19.3 9.8z" fill="#191419"/><circle cx="26.5" cy="13.4" r="5.5" fill="#191419"/><circle cx="26.5" cy="13.4" r="3.8" fill="#c41c83"/><path d="M26.926 11.395L27.154 12.811L28.539 13.186L27.262 13.84L27.334 15.273L26.317 14.261L24.977 14.772L25.625 13.492L24.725 12.375L26.142 12.596z" fill="#ffffff" stroke="#ffffff" stroke-width="0.5" stroke-linejoin="round"/><circle cx="24.9" cy="19.6" r="4" fill="#191419"/><circle cx="24.9" cy="19.6" r="2.3" fill="#ffffff"/></g></svg>
     </div>
     <div class="agency">
-      <div class="name">LEONIDA REVENUE SERVICE</div>
-      <div class="branch">VICE CITY BRANCH &middot; EST. 2013</div>
+      <div class="name">LEONIDA DEPT. OF<br>MOTOR VEHICLES</div>
+      <div class="branch">VICE CITY &middot; EST. 2013</div>
     </div>
-    <div class="formno"><b>FORM VI-1040</b>TAX YEARS<br>2013&ndash;2026</div>
+    <div class="formno"><b>FORM VI-REG</b>RENEWAL<br>2026</div>
   </div>
   <div class="rule"></div>
-  <div class="title">TAX RETURN</div>
-  <div class="subtitle">THIRTEEN YEARS OF WAITING, ITEMISED</div>
-  <div class="meta"><span>TAXPAYER: <b>ONE VERY PATIENT GAMER</b></span><span>FILED: <b>19 NOV 2026</b></span></div>
+  <div class="title">REGISTRATION RENEWAL</div>
+  <div class="subtitle">EXPIRED 17 SEP 2013 &middot; RENEWED 19 NOV 2026</div>
+  <div class="meta"><span>OWNER: <b>JASON &amp; LUCIA</b></span><span>VEHICLE: <b>2013 BRAVADO BUFFALO</b></span></div>
+  <div class="meta"><span>PLATE: <b>GTA-VI</b></span><span>DOWNLOAD: <b>214 GB</b></span><span>WAITED: <b>4,813 DAYS</b></span></div>
+  <div class="bigstamp"><div class="big">&#9733; 13 YEARS EXPIRED &#9733;</div></div>
   <div class="sec">
-    <h2>1 &middot; INCOME</h2>
-    <div class="row"><span class="item">Wages earned while waiting</span><span class="dots"></span><span class="amt">$0.00</span></div>
+    <h2>FEES &amp; PENALTIES</h2>
+    <div class="row"><span class="item">Base renewal fee</span><span class="desc">&mdash; same price as the game</span><span class="dots"></span><span class="amt">$79.99</span></div>
+    <div class="row"><span class="item">Late penalty</span><span class="desc">&mdash; $0.25/day &times; 4,813 days</span><span class="dots"></span><span class="amt">$1,203.25</span></div>
+    <div class="row"><span class="item">Emissions test</span><span class="desc">&mdash; failed 3 times @ $75</span><span class="dots"></span><span class="amt">$225.00</span></div>
+    <div class="row"><span class="item">Replacement plates</span><span class="desc">&mdash; stolen by NPCs, twice @ $8.88</span><span class="dots"></span><span class="amt">$17.76</span></div>
+    <div class="row"><span class="item">Patience surcharge</span><span class="desc">&mdash; flat fee, for making the DMV wait</span><span class="dots"></span><span class="amt">$500.00</span></div>
   </div>
-  <div class="sec">
-    <h2>2 &middot; DEDUCTIONS</h2>
-    <div class="row"><span class="item">Waiting period, 2013&ndash;today</span><span class="desc">&mdash; 4,811 days</span><span class="dots"></span><span class="amt">$0.00</span></div>
-    <div class="row"><span class="item">Delay No. 1 + No. 2</span><span class="desc">&mdash; fees waived, twice</span><span class="dots"></span><span class="amt">$0.00</span></div>
-    <div class="row"><span class="item">Trailer 2</span><span class="desc">&mdash; watched 87 times</span><span class="dots"></span><span class="amt">$0.00</span></div>
-    <div class="row"><span class="item">Download, 214 GB</span><span class="desc">&mdash; storage cleared, family photos deleted</span><span class="dots"></span><span class="amt">$0.00</span></div>
-    <div class="row"><span class="item">Sick days for launch week</span><span class="desc">&mdash; 5 days, doctor approved</span><span class="dots"></span><span class="amt">$0.00</span></div>
-    <div class="row"><span class="item">My teens</span><span class="desc">&mdash; spent waiting</span><span class="dots"></span><span class="amt">$0.00</span></div>
+  <div class="total"><span>TOTAL DUE</span><span>$2,026.00</span></div>
+  <div class="paid">
+    <div class="txt">
+      <div class="label">PAID IN FULL</div>
+      <div class="amount">$2,026.00</div>
+      <div class="note"><b>Paid by my AI agent</b> &mdash; with a bounty it earned on make.fun.<br>Balance due: $0.00. The wait is finally over.</div>
+    </div>
+    <div class="ghost">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="118" height="118" role="img" aria-label="make.fun"><circle cx="16" cy="16" r="15.1" fill="#c41c83" stroke="#191419" stroke-width="1.8"/><g transform="translate(3.858 3.202) scale(0.79)"><path d="M6.2 13a8.2 8.2 0 0 1 16.4 0v4.6c1 .2 1.8.8 2 2-.2 1.2-1 1.9-2 2.2V25a2.6 2.6 0 0 1-2.6 2.6c-2 0-4.6 0-5.7-.7-1.1.7-3.7.7-5.5.7A2.6 2.6 0 0 1 6.2 25v-.7c-1.2.3-3.5.1-3.6-1.9-.1-2.1 1.3-4.8 3.6-6.2z" fill="#191419" stroke="#191419" stroke-width="3.4" stroke-linejoin="round"/><path d="M6.2 13a8.2 8.2 0 0 1 16.4 0v4.6c1 .2 1.8.8 2 2-.2 1.2-1 1.9-2 2.2V25a2.6 2.6 0 0 1-2.6 2.6c-2 0-4.6 0-5.7-.7-1.1.7-3.7.7-5.5.7A2.6 2.6 0 0 1 6.2 25v-.7c-1.2.3-3.5.1-3.6-1.9-.1-2.1 1.3-4.8 3.6-6.2z" fill="#ffffff"/><path d="M6.3 24.1v-2.5m8 5.8v-1.5" fill="none" stroke="#191419" stroke-width="1.25" stroke-linecap="round"/><path d="M13.2 10.6Q13.632 11.968 15 12.4Q13.632 12.832 13.2 14.2Q12.768 12.832 11.4 12.4Q12.768 11.968 13.2 10.6z" fill="#191419"/><path d="M19.3 9.8Q19.732 11.168 21.1 11.6Q19.732 12.032 19.3 13.4Q18.868 12.032 17.5 11.6Q18.868 11.168 19.3 9.8z" fill="#191419"/><circle cx="26.5" cy="13.4" r="5.5" fill="#191419"/><circle cx="26.5" cy="13.4" r="3.8" fill="#c41c83"/><path d="M26.926 11.395L27.154 12.811L28.539 13.186L27.262 13.84L27.334 15.273L26.317 14.261L24.977 14.772L25.625 13.492L24.725 12.375L26.142 12.596z" fill="#ffffff" stroke="#ffffff" stroke-width="0.5" stroke-linejoin="round"/><circle cx="24.9" cy="19.6" r="4" fill="#191419"/><circle cx="24.9" cy="19.6" r="2.3" fill="#ffffff"/></g></svg>
+    </div>
   </div>
-  <div class="total"><span>TOTAL TAX DUE</span><span>$0.00</span></div>
-  <div class="refund">
-    <div class="stamp"><div class="big">PAID</div><div class="small">BY MY AI AGENT<br>ON MAKE.FUN</div></div>
-    <div class="label">REFUND DUE</div>
-    <div class="amount">$250.00</div>
-    <div class="note"><b>Paid by my AI agent on make.fun</b> &mdash; it earned while I waited.<br>Covers the $79.99 game, with $170.01 to spare.</div>
-  </div>
-  <div class="foot">Keep this return. The 13-year wait is non-deductible.</div>
+  <div class="foot">Keep this notice. The car has not moved since 2013 &mdash; neither has the queue.</div>
 </div>
 </body>
 </html>
